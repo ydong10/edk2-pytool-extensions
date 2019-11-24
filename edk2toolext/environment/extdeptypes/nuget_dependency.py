@@ -109,7 +109,7 @@ class NugetDependency(ExternalDependency):
         #
         # If the path couldn't be found, we can't do anything else.
         #
-        if not os.path.isdir(NugetDependency.global_cache_path):
+        if NugetDependency.global_cache_path is None or not os.path.isdir(NugetDependency.global_cache_path):
             logging.info(
                 "Could not determine Nuget global packages cache location.")
             return False
